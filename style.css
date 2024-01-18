@@ -44,6 +44,30 @@ a:hover{
     transition-duration: 0.3s;
 }
 
+.alerts{
+    padding: 0.55rem 1rem;
+    background-color: rgba(87, 185, 242, 0.716);
+    font-size: 0.75rem;
+    align-items: center;
+    display: flex;
+}
+
+.cross-button{
+    outline: none;
+    background: transparent;
+}
+
+.cross-button:hover{
+    background-color: rgba(87, 185, 242, 0.716);
+    transition-duration: 0.3s;
+    border-radius: 25%;
+}
+
+.cross-button:active{
+    background-color: rgba(58, 127, 167, 0.716);
+    transition-duration: 0.08s;
+}
+
 .company-image{
     padding-bottom: 1rem;
 }
