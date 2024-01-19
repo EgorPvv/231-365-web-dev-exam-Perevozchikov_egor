@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Late at Moscow</title>
+        <link rel="shortcut icon" href="img/site-icon.ico">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="container d-flex justify-content-between">
+                <div class="company-name d-flex justify-content-between">
+                    <img src="img/logo.svg" class="logo">
+                    <div class="naming">
+                        Ночная<br>Москва
+                    </div>
+                </div>
+                <nav class="navbar d-block text-center">
+                    <a href="index.html">На главную</a>
+                </nav>
+            </div>
+        </header>
+        <div class="container">
+            <div class="alerts justify-content-between"> <!--из стилей не перенесён display-flex, так как из-за этого нарушается работа кнопки закрытия всплывающего уведомления-->
+                Расскажите о нас друзьям!
+                <button class="cross-button border-0"><img src="img/cross.svg" class="cross"></button>
+            </div>
+        </div>
+        <div class="container applications-block">
+            <h1>Оставленные заявки</h1>
+            <table class="table-applications w-100 text-center">
+                <tr class="table-applications-header">
+                    <td>№</td>
+                    <td>Название маршрута</td>
+                    <td>Дата</td>
+                    <td>Стоимость</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="applications-table-cell"></td>
+                    <td class="applications-table-cell"></td>
+                    <td class="applications-table-cell"></td>
+                    <td class="applications-table-cell"></td>
+                    <td class="applications-table-cell"></td>
+                </tr>
+            </table>
+        </div>
+        <script src="alerts.js"></script>
+    </body>
+</html>
