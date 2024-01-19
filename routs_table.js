@@ -2,35 +2,30 @@
 
 'use strict';
 
-let cross_button = document.querySelector('.cross-button');
-
-function closeAlerts() {
-    let alerts = document.querySelector(".alerts");
-    alerts.style.display = "none";
-};
-
-cross_button.addEventListener("click", closeAlerts);
-
 let perPage = 4;
 let currentPage = 1;
 let totalPage = 0;
 const API_KEY = '0e723aa4-c398-4c47-a8ea-ca5e60872a05';
 const mainUrl = `http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/`;
 
+
 function renderOrders(orders) {
-    const tbody = document.querySelector(".tbody");    
-    const thead = document.querySelector(".table-header");
-    tbody.innerHTML = ''; 
-    tbody.appendChild(thead);
+    const tbody_routs = document.querySelector(".tbody-routs");    
+    const thead_routs = document.querySelector(".table-header-routs");
+    tbody_routs.innerHTML = ''; 
+    tbody_routs.appendChild(thead_routs);
     for (const result of orders) {
         console.log(orders);
         const tr = document.createElement("tr"); 
         tr.id = result.id; 
         const name = document.createElement("td"); 
         name.classList.add('route-name');
+        name.setAttribute('id', 'route-name');
         name.textContent = result.name; 
         const button_accept = document.createElement("button");
         button_accept.textContent = 'Выбрать';
+        button_accept.classList.add("accept-button");
+        button_accept.setAttribute('id', result.id);
         name.appendChild(button_accept);
         tr.append(name); 
         const description = document.createElement("td"); 
@@ -43,12 +38,10 @@ function renderOrders(orders) {
         mainObject.classList.add('route-mainObject');
         mainObject.textContent = result.mainObject; 
         tr.append(mainObject); 
-        tbody.appendChild(tr); 
-    
+        tbody_routs.appendChild(tr); 
+        
     }
-
 }
-
 
 function renderPagination() {
     const blockPagination = document.querySelector('.pagination');
@@ -86,4 +79,3 @@ function getOrgers() {
 }
 
 window.addEventListener('DOMContentLoaded', getOrgers);
-
