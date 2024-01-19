@@ -2,6 +2,16 @@
 
 'use strict';
 
+function getAge(age) {
+    if (age % 10 === 1 && age !== 11) {
+        return 'год';
+    };
+    if (age % 10 >= 2 && age % 10 <= 4 && (age < 10 || age > 20)) { 
+        return 'года'; 
+    } 
+    return 'лет';
+};
+
 function renderGuides(guides) {
     const tbody_guides = document.querySelector(".tbody-guides");    
     const thead_guides = document.querySelector(".table-header-guides");
@@ -21,11 +31,11 @@ function renderGuides(guides) {
         tr.append(language); 
         const workExperience = document.createElement("td"); 
         workExperience.classList.add('table-cell');
-        workExperience.textContent = result.workExperience; 
+        workExperience.textContent = result.workExperience + ' ' + getAge(result.workExperience); 
         tr.append(workExperience); 
         const pricePerHour = document.createElement("td"); 
         pricePerHour.classList.add('table-cell');
-        pricePerHour.textContent = result.pricePerHour; 
+        pricePerHour.textContent = result.pricePerHour + " ₽ / час"; 
         tr.append(pricePerHour); 
         const butt = document.createElement("td");
         butt.textContent = document.createElement("button");
@@ -43,7 +53,7 @@ function getGuides() {
     };
 
     xhr.onerror = function() {
-        console.log(`Ошибка соединения`);
+        alert(`Ошибка соединения`);
     };
 }
 
