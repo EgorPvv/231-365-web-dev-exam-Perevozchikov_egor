@@ -88,7 +88,7 @@ function getOrgers() {
     };
 
     xhr.onerror = function() {
-        console.log(`Ошибка соединения`);
+        alert(`Ошибка соединения`);
     };
 }
 
