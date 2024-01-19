@@ -8,6 +8,11 @@ let totalPage = 0;
 const API_KEY = '0e723aa4-c398-4c47-a8ea-ca5e60872a05';
 const mainUrl = `http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/`;
 
+let routeID = 0;
+
+function changeValue(buttonId) {
+    routeID = buttonId;
+}
 
 function renderOrders(orders) {
     const tbody_routs = document.querySelector(".tbody-routs");    
@@ -25,8 +30,14 @@ function renderOrders(orders) {
         const button_accept = document.createElement("button");
         button_accept.textContent = 'Выбрать';
         button_accept.classList.add("accept-button");
-        button_accept.setAttribute('id', result.id);
+        button_accept.setAttribute('id', tr.id);
         name.appendChild(button_accept);
+        name.addEventListener('click', function(event) {
+            if (event.target.tagName === "BUTTON") {
+                let buttonId = event.target.id;
+                changeValue(buttonId);
+            } 
+        });
         tr.append(name); 
         const description = document.createElement("td"); 
         description.classList.add('route-description');
@@ -76,6 +87,9 @@ function getOrgers() {
         renderPagination();
     };
 
+    xhr.onerror = function() {
+        console.log(`Ошибка соединения`);
+    };
 }
 
 window.addEventListener('DOMContentLoaded', getOrgers);
